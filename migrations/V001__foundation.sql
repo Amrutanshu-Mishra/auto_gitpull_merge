@@ -1,0 +1,13 @@
+-- Compute, database and the three data layers plus META.
+CREATE WAREHOUSE IF NOT EXISTS REPO_PULSE_WH
+    WAREHOUSE_SIZE = XSMALL
+    AUTO_SUSPEND   = 60
+    AUTO_RESUME    = TRUE;
+
+CREATE DATABASE IF NOT EXISTS REPO_PULSE;
+USE DATABASE REPO_PULSE;
+
+CREATE SCHEMA IF NOT EXISTS META;       -- migrations, watermarks, run log
+CREATE SCHEMA IF NOT EXISTS RAW;        -- untouched source JSON
+CREATE SCHEMA IF NOT EXISTS STAGING;    -- typed, cleaned
+CREATE SCHEMA IF NOT EXISTS ANALYTICS;  -- enriched, business views

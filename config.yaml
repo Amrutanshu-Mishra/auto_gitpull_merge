@@ -1,0 +1,22 @@
+repos:
+  - streamlit/streamlit
+
+limits:
+  default: 100
+  github_issues: 500
+
+cortex:
+  # EMBED_TEXT_768 model: its output dimension must be 768 to fit ANALYTICS.ISSUES_ENRICHED.EMBEDDING
+  embed_model: snowflake-arctic-embed-m-v1.5
+  # COMPLETE model used by the Ask page
+  complete_model: mistral-large2
+
+enrich:
+  batch_size: 200
+
+categories:
+  - bug
+  - feature
+  - question
+  - docs
+  - other
